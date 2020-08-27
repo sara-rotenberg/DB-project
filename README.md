@@ -6,7 +6,10 @@ and also retrieving data from a table in accordance to some kriterions (by quier
 ## Team Members
 * Sara Rotenberg
 * Bracha Eisenstein
-## Technologies Used
-python 3.8
+## Libraries/Technologies Used
+* python 3.8
+* pytest
+## Special Thanks
+Ministry of Defence team
 
 
