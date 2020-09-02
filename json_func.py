@@ -20,6 +20,7 @@ def read_from_json(path):
     data = json.load(the_file)
     return data
 
+
 def add_table_json(data,table_name):
     json_data = read_from_json("db_files/db.json")
     with open("db_files/db.json", "w") as the_file:
