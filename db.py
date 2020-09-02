@@ -21,6 +21,7 @@ def update_db_meta_data(db_meta_data):
 def file_exists(path):
     return os.path.isfile(path)
 
+
 def del_if_record_appear(path, key):
     file_data = read_from_json(path)
     record_exist =False
@@ -36,8 +37,8 @@ def del_if_record_appear(path, key):
 
     return record_exist
 
-def insert_new_record(values, primary_key, name, db_meta_data):
 
+def insert_new_record(values, primary_key, name, db_meta_data):
     new_record = {values[primary_key]: {k: str(v) for k, v in values.items() if k != primary_key}}
 
     if db_meta_data[name]['num_of_lines'] % 10 == 0 and db_meta_data[name]['num_of_lines'] != 0:
@@ -77,6 +78,7 @@ def convert_to_DBFields(fields):
         db_fields_list.append(DBField(k, types[v]))
     return db_fields_list
 
+                    
 def meets_all_the_criteria(file_data,key,value,primary_key,criteria):
     flag = True
     for c in criteria:
@@ -92,16 +94,6 @@ def meets_all_the_criteria(file_data,key,value,primary_key,criteria):
     return flag
 
 
-# return_flag = True
-# for c in criteria:
-#     if c.field_name == primary_key:
-#         if not ops[c.operator](int(key), int(c.value)):
-#             return_flag = False
-#             break
-#
-#     elif not ops[c.operator](value[c.field_name], c.value):
-#         return_flag = False
-#         break
 class DBTable:
     def __init__(self, name: str, fields: List[DBField], key_field_name: str):
         self.name = name
